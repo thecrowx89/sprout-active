@@ -1,11 +1,11 @@
 <?php
 /**
- * @link      https://sprout.barrelstrengthdesign.com
+ * @link      https://sprout.thecrowx89design.com
  * @copyright Copyright (c) Barrel Strength Design LLC
  * @license   MIT
  */
 
-namespace barrelstrength\sproutactive\services;
+namespace thecrowx89\sproutactive\services;
 
 use Craft;
 use craft\base\Component;

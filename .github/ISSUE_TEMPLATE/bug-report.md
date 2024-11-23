@@ -19,7 +19,7 @@ about: Tell us about a bug you may have identified
 - Database driver & version:  
 - Plugins & versions:
 
-_For some issues, we may request that you send the following items to Support <sprout@barrelstrengthdesign.com>. If you feel your issue may fall in that category, feel free to send things over after you post this issue and reference the issue in your email._
+_For some issues, we may request that you send the following items to Support <sprout@thecrowx89design.com>. If you feel your issue may fall in that category, feel free to send things over after you post this issue and reference the issue in your email._
 
 - `composer.json`
 - `storage/logs/web.log` (or a zip of the whole log folder)

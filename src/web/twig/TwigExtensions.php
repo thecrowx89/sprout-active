@@ -1,13 +1,13 @@
 <?php
 /**
- * @link      https://sprout.barrelstrengthdesign.com
+ * @link      https://sprout.thecrowx89design.com
  * @copyright Copyright (c) Barrel Strength Design LLC
  * @license   MIT
  */
 
- namespace barrelstrength\sproutactive\web\twig;
+ namespace thecrowx89\sproutactive\web\twig;
 
- use barrelstrength\sproutactive\SproutActive;
+ use thecrowx89\sproutactive\SproutActive;
  use Craft;
  use Twig\Extension\AbstractExtension;
  use Twig\TwigFunction;

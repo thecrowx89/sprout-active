@@ -1,5 +1,5 @@
 {
-  "name": "barrelstrength/sprout-active",
+  "name": "thecrowx89/sprout-active",
   "description": "Simplify navigation and URL-based logic in your templates.",
   "version": "2.3.0",
   "type": "craft-plugin",
@@ -12,16 +12,16 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Barrel Strength",
-      "homepage": "https://www.barrelstrengthdesign.com/"
+      "name": "Edward V.",
+      "homepage": "https://info@ideastudio.ch"
     }
   ],
   "support": {
-    "email": "support@barrelstrengthdesign.com",
-    "issues": "https://github.com/barrelstrength/sprout-active/issues?state=open",
-    "source": "https://github.com/barrelstrength/sprout-active",
-    "docs": "https://sprout.barrelstrengthdesign.com/docs/active",
-    "rss": "https://github.com/barrelstrength/sprout-active/commits/v2.atom"
+    "email": "info@ideastudio.ch",
+    "issues": "https://github.com/thecrowx89/sprout-active/issues?state=open",
+    "source": "https://github.com/thecrowx89/sprout-active",
+    "docs": "",
+    "rss": "https://github.com/thecrowx89/sprout-active/commits/v2.atom"
   },
   "require": {
     "php": "^8.0.2",
@@ -29,17 +29,17 @@
   },
   "autoload": {
     "psr-4": {
-      "barrelstrength\\sproutactive\\": "src/"
+      "thecrowx89\\sproutactive\\": "src/"
     }
   },
   "extra": {
     "name": "Sprout Active",
     "handle": "sprout-active",
     "developer": "Barrel Strength",
-    "documentationUrl": "https://sprout.barrelstrengthdesign.com/docs/active",
-    "class": "barrelstrength\\sproutactive\\SproutActive",
+    "documentationUrl": "",
+    "class": "thecrowx89\\sproutactive\\SproutActive",
     "components": {
-      "app": "barrelstrength\\sproutactive\\services\\App"
+      "app": "thecrowx89\\sproutactive\\services\\App"
     }
   }
 }

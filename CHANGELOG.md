@@ -23,7 +23,7 @@
 ### Fixed
 - Fixed bug where aliases were not supported when using Absolute URL setting ([#4])
 
-[#4]: https://github.com/barrelstrength/craft-sprout-active/issues/4
+[#4]: https://github.com/thecrowx89/craft-sprout-active/issues/4
 
 ## 2.0.8 - 2018-10-24
 
@@ -71,7 +71,7 @@
 - Added plugin icon
 
 ### Changed
-- Updated composer require syntax to `barrelstrength/sprout-active`
+- Updated composer require syntax to `thecrowx89/sprout-active`
 - Updated `SproutActive::$api` => `SproutActive::$app`
 - Improved comments and code syntax
 

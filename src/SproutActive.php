@@ -1,18 +1,18 @@
 <?php
 /**
- * @link      https://sprout.barrelstrengthdesign.com
+ * @link      https://sprout.thecrowx89design.com
  * @copyright Copyright (c) Barrel Strength Design LLC
  * @license   MIT
  */
 
-namespace barrelstrength\sproutactive;
+namespace thecrowx89\sproutactive;
 
-use barrelstrength\sproutactive\services\App;
-use barrelstrength\sproutactive\web\twig\TwigExtensions;
+use thecrowx89\sproutactive\services\App;
+use thecrowx89\sproutactive\web\twig\TwigExtensions;
 use Craft;
 use craft\base\Plugin;
 use yii\base\InvalidConfigException;
-use barrelstrength\sproutactive\services\Utilities;
+use thecrowx89\sproutactive\services\Utilities;
 use craft\web\View;
 
 class SproutActive extends Plugin

@@ -1,7 +1,7 @@
 [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 [![Updated to work with Craft CMS 4 & PHP 8.0.2](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
-In an effort to reduce the number of packages we publicly maintain, Sprout Active will not be migrated to Craft 4. If you'd like to take the helm or take responsibility over maintaining the repository please reach out: [sprout@barrelstrengthdesign.com](mailto:sprout@barrelstrengthdesign.com).
+In an effort to reduce the number of packages we publicly maintain, Sprout Active will not be migrated to Craft 4. If you'd like to take the helm or take responsibility over maintaining the repository please reach out: [sprout@thecrowx89design.com](mailto:sprout@thecrowx89design.com).
 
 
 
@@ -35,13 +35,13 @@ See the documentation for more advanced use cases.
 
 ## Documentation
 
-See the [Sprout Website](https://sprout.barrelstrengthdesign.com/craft-plugins/active/docs) for documentation, guides, and additional resources. 
+See the [Sprout Website](https://sprout.thecrowx89design.com/craft-plugins/active/docs) for documentation, guides, and additional resources. 
 
 ## Support
 
-- [Send a Support Ticket](https://sprout.barrelstrengthdesign.com/craft-plugins/request/support) via the Sprout Website.
-- [Create an issue](https://github.com/barrelstrength/craft-sprout-active/issues) on Github.
+- [Send a Support Ticket](https://sprout.thecrowx89design.com/craft-plugins/request/support) via the Sprout Website.
+- [Create an issue](https://github.com/thecrowx89/craft-sprout-active/issues) on Github.
 
-<a href="https://sprout.barrelstrengthdesign.com" target="_blank">
-  <img src="https://s3.amazonaws.com/sprout.barrelstrengthdesign.com-assets/content/plugins/sprout-icon.svg" width="72" align="right">
+<a href="https://sprout.thecrowx89design.com" target="_blank">
+  <img src="https://s3.amazonaws.com/sprout.thecrowx89design.com-assets/content/plugins/sprout-icon.svg" width="72" align="right">
 </a>
