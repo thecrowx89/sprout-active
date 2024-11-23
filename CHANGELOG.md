@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.3.0 - 2024-11-23
+
+## Added
+- Updated to work with craft cms 4 and php ^8.0.2
+
 ## 2.2.0 - 2020-02-01
 
 ## Added

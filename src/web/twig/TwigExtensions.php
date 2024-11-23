@@ -5,12 +5,12 @@
  * @license   MIT
  */
 
-namespace barrelstrength\sproutactive\web\twig;
+ namespace barrelstrength\sproutactive\web\twig;
 
-use barrelstrength\sproutactive\SproutActive;
-use Craft;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
+ use barrelstrength\sproutactive\SproutActive;
+ use Craft;
+ use Twig\Extension\AbstractExtension;
+ use Twig\TwigFunction;
 
 class TwigExtensions extends AbstractExtension
 {
@@ -31,9 +31,13 @@ class TwigExtensions extends AbstractExtension
     {
         return [
             new TwigFunction('active', [$this, 'getActive']),
-            new TwigFunction('activeClass', [$this, 'getActiveClass'], ['is_safe' => ['html']]),
+            new TwigFunction('activeClass', [$this, 'getActiveClass'], [
+                'is_safe' => ['html'],
+            ]),
             new TwigFunction('segment', [$this, 'getSegment']),
-            new TwigFunction('segmentClass', [$this, 'getSegmentClass'], ['is_safe' => ['html']])
+            new TwigFunction('segmentClass', [$this, 'getSegmentClass'], [
+                'is_safe' => ['html'],
+            ]),
         ];
     }
 
@@ -46,10 +50,16 @@ class TwigExtensions extends AbstractExtension
      *
      * @return string|null
      */
-    public function getActive($string = '', $segment = 1, $className = 'active')
-    {
-        $match = SproutActive::$app->utilities->match($string, $segment);
+    public function getActive(
+        string $string = '', 
+        int $segment = 1, 
+        string $className = 'active'
+    ): ?string {
+        if (!Craft::$app->getRequest()->getIsSiteRequest()) {
+            return null;
+        }
 
+        $match = SproutActive::getInstance()->utilities->match($string, $segment);
         return $match ? $className : null;
     }
 
@@ -62,13 +72,17 @@ class TwigExtensions extends AbstractExtension
      *
      * @return mixed OR null
      */
-    public function getActiveClass($string = '', $segment = 1, $className = 'active')
-    {
-        $match = SproutActive::$app->utilities->match($string, $segment);
+    public function getActiveClass(
+        string $string = '', 
+        int $segment = 1, 
+        string $className = 'active'
+    ): ?string {
+        if (!Craft::$app->getRequest()->getIsSiteRequest()) {
+            return null;
+        }
 
-        $activeClassString = 'class="'.$className.'"';
-
-        return $match ? $activeClassString : null;
+        $match = SproutActive::getInstance()->utilities->match($string, $segment);
+        return $match ? 'class="' . htmlspecialchars($className, ENT_QUOTES) . '"' : null;
     }
 
     /**
@@ -78,9 +92,13 @@ class TwigExtensions extends AbstractExtension
      *
      * @return string|null   Value of URL segment if it exists
      */
-    public function getSegment($segment = null)
+    public function getSegment(?int $segment = null): ?string
     {
-        return Craft::$app->request->getSegment($segment);
+        if (!Craft::$app->getRequest()->getIsSiteRequest()) {
+            return null;
+        }
+
+        return Craft::$app->getRequest()->getSegment($segment);
     }
 
     /**
@@ -90,10 +108,13 @@ class TwigExtensions extends AbstractExtension
      *
      * @return mixed OR null    Value of URL segment wrapped in class parameter if it exists
      */
-    public function getSegmentClass($segment = null)
+    public function getSegmentClass(?int $segment = null): ?string
     {
-        $segment = Craft::$app->request->getSegment($segment);
+        if (!Craft::$app->getRequest()->getIsSiteRequest()) {
+            return null;
+        }
 
-        return 'class="'.$segment.'"';
+        $segment = Craft::$app->getRequest()->getSegment($segment);
+        return $segment ? 'class="' . htmlspecialchars($segment, ENT_QUOTES) . '"' : null;
     }
 }

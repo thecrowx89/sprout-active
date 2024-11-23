@@ -23,18 +23,16 @@ class Utilities extends Component
      *
      * @return bool
      */
-    public function match($string, $segment): bool
+    public function match(string $string, int|string $segment): bool
     {
-        // Get the slug version of the segment
+        if (!Craft::$app->getRequest()->getIsSiteRequest()) {
+            return false;
+        }
+
         $matchString = $this->processSegment($segment);
-
-        //Adds support for alias based string
         $string = Craft::getAlias($string);
-
-        // Convert our input into an array
         $matchOptions = explode('|', $string);
-
-        // Return true if the segment matches any of our test values
+        
         return in_array($matchString, $matchOptions, true);
     }
 
@@ -45,21 +43,17 @@ class Utilities extends Component
      *
      * @return string         Segment, Path, or Full URL
      */
-    public function processSegment($segment)
+    public function processSegment(int|string $segment): ?string
     {
-        switch ($segment) {
-            case 'url':
-                return $this->getUrl();
-                break;
-
-            case 'path':
-                return Craft::$app->request->getFullPath();
-                break;
-
-            default:
-                return Craft::$app->request->getSegment($segment);
-                break;
+        if (!Craft::$app->getRequest()->getIsSiteRequest()) {
+            return null;
         }
+
+        return match ($segment) {
+            'url' => $this->getUrl(),
+            'path' => Craft::$app->getRequest()->getFullPath(),
+            default => Craft::$app->getRequest()->getSegment((int)$segment),
+        };
     }
 
     /**
@@ -69,23 +63,24 @@ class Utilities extends Component
      */
     private function getUrl(): string
     {
+        $request = Craft::$app->getRequest();
+        $sites = Craft::$app->getSites();
+        
         if (defined('CRAFT_SITE_URL')) {
-            return CRAFT_SITE_URL.Craft::$app->request->url;
+            return CRAFT_SITE_URL . $request->getUrl();
         }
 
-        $localizedSiteUrl = Craft::$app->getSites()->currentSite->baseUrl;
-        $localizedSiteUrl = rtrim($localizedSiteUrl, '/');
-
-        // Unless 'omitScriptNameInUrls' is explicitly set to 'true' then page.url will
-        // include index.php, we'll have to add it to the localizedSiteUrl
-        $omitScriptNameInUrls = Craft::$app->config->getGeneral()->omitScriptNameInUrls === true;
-        $noIndexInUrls = strpos($localizedSiteUrl, 'index.php') !== true;
-
-        if ($omitScriptNameInUrls || $noIndexInUrls) {
-            return $localizedSiteUrl.'/'.Craft::$app->request->getFullPath();
+        $site = $sites->getCurrentSite();
+        $baseUrl = rtrim($site->getBaseUrl(), '/');
+        
+        $omitScriptNameInUrls = Craft::$app->getConfig()->getGeneral()->omitScriptNameInUrls;
+        $usePathInfo = Craft::$app->getConfig()->getGeneral()->usePathInfo;
+        
+        if ($omitScriptNameInUrls || $usePathInfo) {
+            return $baseUrl . '/' . $request->getPathInfo();
         }
 
-        return $localizedSiteUrl.'/index.php/'.Craft::$app->request->getFullPath();
+        return $baseUrl . '/index.php/' . $request->getPathInfo();
     }
 }
 
